@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Complete project report",
+    "description": "Finish the final draft of the project report and submit it by end of the day.",
+    "completed": false,
+    "category": "Work",
+    "user": "user_id_1"
+  },
+  {
+    "title": "Grocery shopping",
+    "description": "Buy groceries including milk, bread, and vegetables.",
+    "completed": true,
+    "category": "Personal",
+    "user": "user_id_1"
+  },
+  {
+    "title": "Exercise routine",
+    "description": "Follow the exercise routine: 30 minutes of cardio and 15 minutes of strength training.",
+    "completed": false,
+    "category": "Health",
+    "user": "user_id_2"
+  }
+]
