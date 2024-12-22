@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="54NmlKxb0PvhcBFVR7MWMsZPwRsC81VPpS1uJd4A2wQ" />
+    <title>Task Management API Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-gray-200 font-sans">
+    <header class="p-6 bg-gray-800 shadow-md">
+      <h1 class="text-3xl font-bold text-center">Task Management API</h1>
+      <p class="text-center text-gray-400">
+        A RESTful API for managing tasks with user authentication and CRUD
+        operations.
+      </p>
+      <p class="text-center text-gray-400">
+        this is developed by
+        <a
+          class="text-2xl font-bold text-blue-400"
+          href="http://chidavid.netlify.app/"
+          >DAVID CHI</a
+        >
+      </p>
+    </header>
+
+    <main class="container mx-auto p-6">
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2">
+          Installation
+        </h2>
+        <div class="mt-4">
+          <p>Clone the repository:</p>
+          <pre
+            class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+          ><code>git clone https://github.com/mernking/task-management-api.git</code></pre>
+
+          <p class="mt-4">Navigate to the project directory:</p>
+          <pre
+            class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+          ><code>cd task-management-api</code></pre>
+
+          <p class="mt-4">Install dependencies:</p>
+          <pre
+            class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+          ><code>npm install</code></pre>
+
+          <p class="mt-4">Start the server:</p>
+          <pre
+            class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+          ><code>npm start</code></pre>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <p class="mt-4">server url:</p>
+        <pre
+          class="bg-gray-800 text-blue-500 p-4 rounded-lg mt-2 overflow-x-auto"
+        ><code>here is the server url for testing https://task-management-api-2ti2.onrender.com/ </code></pre>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2">
+          API Endpoints
+        </h2>
+        <div class="mt-4">
+          <h3 class="text-xl font-semibold mt-4">User Endpoints</h3>
+
+          <div class="mt-4">
+            <p class="font-medium">
+              1. <span class="text-blue-400">POST</span> /api/auth/signup
+            </p>
+            <p class="ml-4">Description: Create a new user account.</p>
+            <pre
+              class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+            ><code>{
+  "username": "exampleUser",
+  "password": "examplePassword"
+}</code></pre>
+          </div>
+
+          <div class="mt-4">
+            <p class="font-medium">
+              2. <span class="text-blue-400">POST</span> /api/auth/login
+            </p>
+            <p class="ml-4">
+              Description: Authenticate a user and return a JWT token.
+            </p>
+            <pre
+              class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+            ><code>{
+  "username": "exampleUser",
+  "password": "examplePassword"
+}</code></pre>
+          </div>
+
+          <h3 class="text-xl font-semibold mt-8">Task Endpoints</h3>
+
+          <div class="mt-4">
+            <p class="font-medium">
+              3. <span class="text-green-400">POST</span> /api/tasks
+            </p>
+            <p class="ml-4">Description: Create a new task.</p>
+            <pre
+              class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+            ><code>{
+  "title": "Task title",
+  "description": "Task description",
+  "completed": false,
+  "category": "Task category"
+}</code></pre>
+          </div>
+
+          <div class="mt-4">
+            <p class="font-medium">
+              4. <span class="text-yellow-400">GET</span> /api/tasks
+            </p>
+            <p class="ml-4">
+              Description: Retrieve all tasks for the authenticated user.
+            </p>
+            <pre
+              class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+            ><code>[
+  {
+    "title": "Task title",
+    "description": "Task description",
+    "completed": false,
+    "category": "Task category",
+    "user": "user_id"
+  }
+]</code></pre>
+          </div>
+
+          <div class="mt-4">
+            <p class="font-medium">
+              5. <span class="text-yellow-400">GET</span> /api/tasks/:id
+            </p>
+            <p class="ml-4">Description: Retrieve a specific task by ID.</p>
+            <pre
+              class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+            ><code>{
+  "_id": "task_id",
+  "title": "Task title",
+  "description": "Task description",
+  "completed": false,
+  "category": "Task category",
+  "user": "user_id"
+}</code></pre>
+          </div>
+
+          <div class="mt-4">
+            <p class="font-medium">
+              6. <span class="text-yellow-400">PUT</span> /api/tasks/:id
+            </p>
+            <p class="ml-4">Description: Update a specific task by ID.</p>
+            <pre
+              class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+            ><code>{
+  "title": "Updated task title",
+  "description": "Updated description",
+  "completed": true,
+  "category": "Updated category"
+}</code></pre>
+          </div>
+
+          <div class="mt-4">
+            <p class="font-medium">
+              7. <span class="text-red-400">DELETE</span> /api/tasks/:id
+            </p>
+            <p class="ml-4">Description: Delete a specific task by ID.</p>
+            <pre
+              class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+            ><code>{
+  "message": "Task deleted"
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2">
+          Authentication
+        </h2>
+        <p class="mt-4">
+          All task endpoints require authentication. Include the JWT token in
+          the Authorization header of your requests:
+        </p>
+        <pre
+          class="bg-gray-800 text-gray-100 p-4 rounded-lg mt-2 overflow-x-auto"
+        ><code>Authorization: Bearer your_jwt_token</code></pre>
+      </section>
+    </main>
+
+    <footer class="text-center p-6 bg-gray-800 border-t border-gray-700">
+      <p>Task Management API &copy; 2024</p>
+    </footer>
+  </body>
+</html>

@@ -3,6 +3,7 @@ require("dotenv").config(); // Load environment variables
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 const authRoutes = require("./routes/auth");
 const taskRoutes = require("./routes/tasks");
 
@@ -20,14 +21,18 @@ mongoose
 // Middleware
 app.use(cors());
 app.use(express.json());
+// Serve static files from the "pages" directory
+app.use(express.static("pages"));
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 
+// Handle root route
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  res.sendFile(path.join(__dirname, "pages", "index.html"));
 });
+
 
 // Start server
 const PORT = process.env.PORT || 5000;
